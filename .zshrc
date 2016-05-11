@@ -90,10 +90,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source ~/.zsh_aliases
-if [ $(uname -n) = "SRVAPPS01" ]; then
-  if [ -f ~/.zsh_aliases_SRVAPPS01 ]; then
-    source ~/.zsh_aliases_SRVAPPS01
-  fi
+
+if [ -f ~/.zsh_aliases_$(uname -n) ]; then
+  source ~/.zsh_aliases_$(uname -n)
 fi
 # source ~/powerlevel9k/powerlevel9k.zsh-theme
 
@@ -105,5 +104,5 @@ function crysaccess() {
 }
 compdef '_files -W /home/theodo/crysalide/projects/' crysaccess
 
-export NVM_DIR="/home/alexandre/.nvm"
+export NVM_DIR="~/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
