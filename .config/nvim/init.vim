@@ -41,6 +41,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'ervandew/supertab'
 Plug 'jwalton512/vim-blade', { 'for': 'blade' }
 Plug 'terryma/vim-multiple-cursors'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
