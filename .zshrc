@@ -90,8 +90,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source ~/.zsh_aliases
-if [ $(echo uname -n) = "SRVAPPS01" ]; then
-  source ~/.zsh_aliases_SRVAPPS01
+if [ $(uname -n) = "SRVAPPS01" ]; then
+  if [ -f ~/.zsh_aliases_SRVAPPS01 ]; then
+    source ~/.zsh_aliases_SRVAPPS01
+  fi
 fi
 # source ~/powerlevel9k/powerlevel9k.zsh-theme
 
