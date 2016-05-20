@@ -15,33 +15,11 @@ alias srvprodcsps='ssh acousin@37.59.248.164 -p 22022'
 alias srvapps01='ssh acousin@37.59.248.168 -p 22022'
 alias srv='~/srvscript.sh'
 
-
-alias checkme='cd /home/laravel/checkme'
-alias debugcheckme='DEBUG=checkme ./bin/www'
-alias sassdev='sass-convert {global,index,login}.{sass,scss}; sass --update .:.; rsync -e "ssh -p 22022" --progress *.css* acousin@37.59.248.168:/home/web/checkme/public/stylesheets/; rsync -e "ssh -p 22022" --progress *.sass acousin@37.59.248.168:/home/web/checkme/sass'
-alias mountusb='sudo mount -t auto $1 $2'
-alias automountusb='sudo mount -t auto /dev/sdc1 /mnt/usb'
-alias androidstudio2='/home/alexandre/android-studio-beta5/bin/studio.sh'
-alias studio='androidstudio2'
-alias androidstudio='/home/alexandre/apps/android-studio/bin/studio.sh'
-alias pickonserv='cd /mnt/affaircry/007_PROJETS_INNOVATION_CONSEIL/201311_FIDZUP/7.\ APPLICATION\ MOBILE/'
-alias pickoutios='cd /home/alexandre/Documents/pickout-ios/pickout/Pickout'
-alias pp='amixer set Master 1%+'
-alias ppp='amixer set Master 10%+'
-alias mm='amixer set Master 1%-'
-alias mmm='amixer set Master 10%-'
-alias nvidia='sudo nvidia-settings'
-alias nobip='xset -b'
-
-
 alias pickout='cd /home/laravel/pickout'
 alias faqplus='cd /home/jbigalet/meteor/faqplus'
 alias csps='cd /home/laravel/csps'
 
 alias wkhtml='wkhtmltopdf.sh -s "A5" http://checkme.crysalide.fr/rapports/pdf/1/56/325 test.pdf'
-
-alias chromiumi='chromium --incognito'
-alias gchrome='google-chrome'
 
 alias crysaccess='/home/theodo/crysalide'
 alias templatecrysaccess='cd /home/theodo/crysalide/projects/devtests/apps/'
@@ -58,6 +36,7 @@ alias crf='croixrougefrancaise'
 
 
 alias tat='tmux a -t'
+alias tls='tmux ls'
 
 alias rsp='rsync --progress'
 
