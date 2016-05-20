@@ -67,6 +67,16 @@ nnoremap <expr> ZT 'zz' . winheight(0)/4 . '<C-e>'
 " let at least 3 lines above and below the cursor
 set scrolloff=3
 
+set laststatus=2
+set ignorecase
+set autoindent
+set smartindent
+set shiftwidth=2
+set tabstop=2
+set expandtab
+set noswapfile
+set hlsearch
+
 syntax on
 
 set noswapfile
