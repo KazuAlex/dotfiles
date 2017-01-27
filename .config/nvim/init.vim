@@ -76,6 +76,7 @@ set tabstop=2
 set expandtab
 set noswapfile
 set hlsearch
+set encoding=utf-8
 
 syntax on
 
