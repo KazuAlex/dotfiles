@@ -28,7 +28,6 @@ Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'mbbill/desertEx'
 Plug 'tomasr/molokai'
 Plug 'w0ng/vim-hybrid'
 Plug 'scrooloose/nerdtree'
@@ -44,14 +43,11 @@ Plug 'tpope/vim-surround'
 Plug 'powerline/powerline'
 Plug 'jreybert/vimagit'
 Plug 'vim-scripts/colorizer'
-Plug 'vim-scripts/nextval'
 Plug 'easymotion/vim-easymotion'
 Plug 'ervandew/supertab'
 Plug 'jwalton512/vim-blade', { 'for': 'blade' }
 Plug 'terryma/vim-multiple-cursors'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'sqlcomplete.vim'
+Plug 'sheerun/vim-polyglot'
 
 " if (v:version > 703 || v:version == 703 && has('patch598')) && has('python')
   "Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
