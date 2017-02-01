@@ -42,6 +42,11 @@ Plug 'ervandew/supertab'
 Plug 'jwalton512/vim-blade', { 'for': 'blade' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'sheerun/vim-polyglot'
+Plug 'Shougo/neomru.vim'
+Plug 'Shougo/unite.vim'
+Plug 'godlygeek/tabular'
+Plug 'majutsushi/tagbar'
+Plug 'sjl/gundo.vim'
 
 call plug#end()
 
