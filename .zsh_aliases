@@ -21,11 +21,17 @@ alias srvapps01i='ssh acousin@192.168.213.23'
 alias srvredmine='ssh acousin@192.168.13.26'
 alias srvtrombi='ssh devcitae@37.187.136.173'
 alias srvsuiviplus='ssh acousin@192.168.213.30'
+alias srvproposdock='ssh acousin@192.168.13.31'
+alias srvsocle01='ssh acousin@192.168.113.19'
+alias srvintranet01='ssh acousin@192.168.213.26'
+alias srvpreprodintranet01='ssh acousin@192.168.113.26'
 
 alias devcsps='ssh acousin@192.168.113.13'
 alias devapps01='ssh acousin@192.168.113.14'
 alias devenergieplus='ssh acousin@192.168.113.15'
 alias devreleveplus='ssh acousin@192.168.113.16'
+
+alias srvreleveplus2017='ssh acousin@192.168.213.31'
 
 alias qualifcsps='ssh -p 2222 acousin@37.59.248.161'
 
@@ -82,10 +88,24 @@ alias fr="setxkbmap fr"
 alias bright='echo $1 | sudo tee /sys/class/backlight/intel_backlight/brightness'
 alias remap='/usr/bin/setxkbmap -option "caps:swapescape"'
 
-alias vim='nvim'
+# alias vim='nvim'
 alias oldvim='/usr/bin/vim'
 
 alias gmail="chromium http://gmail.com"
+
+alias whoisonport80='sudo netstat -tulpn | grep ":80"'
+
+# aliases for docker
+alias dc='docker-compose'
+alias dcu='docker-compose up -d'
+alias dcud='docker-compose up -d'
+alias dcs='docker-compose stop'
+alias dcd='docker-compose down'
+alias dcps='docker-compose ps'
+alias dce='docker-compose exec'
+alias dcr='docker-compose run'
+alias dcrd='docker-compose run -d'
+alias dcb='docker-compose build'
 
 
 alias mariosong="beep -f 130 -l 100 -n -f 262 -l 100 -n -f 330 -l 100 -n -f 392 -l 100 -n -f 523 -l 100 -n -f 660 -l 100 -n -f 784 -l 300 -n -f 660 -l 300 -n -f 146 -l 100 -n -f 262 -l 100 -n -f 311 -l 100 -n -f 415 -l 100 -n -f 523 -l 100 -n -f 622 -l 100 -n -f 831 -l 300 -n -f 622 -l 300 -n -f 155 -l 100 -n -f 294 -l 100 -n -f 349 -l 100 -n -f 466 -l 100 -n -f 588 -l 100 -n -f 699 -l 100 -n -f 933 -l 300 -n -f 933 -l 100 -n -f 933 -l 100 -n -f 933 -l 100 -n -f 1047 -l 400"

@@ -48,6 +48,7 @@ Plug 'ervandew/supertab'
 Plug 'jwalton512/vim-blade', { 'for': 'blade' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'sheerun/vim-polyglot'
+Plug 'Shougo/denite.nvim' " it's not working with Plug ?
 
 " if (v:version > 703 || v:version == 703 && has('patch598')) && has('python')
   "Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
@@ -56,6 +57,16 @@ Plug 'sheerun/vim-polyglot'
 
 Plug 'Raimondi/delimitMate'
 Plug 'edsono/vim-matchit'
+
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-markdown'
+" Plug 'plasticboy/vim-markdown'
+
+" Plug 'Shougo/vimproc.vim'
+" Plug 'Shougo/unite.vim'
+" Plug 'm2mdas/phpcomplete-extended'
+
+
 
 call plug#end()            " required
 
@@ -112,6 +123,7 @@ let g:syntastic_check_on_wq = 0
 autocmd FileType php setlocal commentstring=//\ %s
 
 
+let mapleader = "\<Esc>"
 
 inoremap <C-s> <Esc> :w <CR>
 nmap <S-Tab> :bprevious <CR>
@@ -165,3 +177,4 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
