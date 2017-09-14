@@ -60,12 +60,16 @@ Plug 'edsono/vim-matchit'
 
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-markdown'
+Plug 'dhruvasagar/vim-table-mode'
 " Plug 'plasticboy/vim-markdown'
 
 " Plug 'Shougo/vimproc.vim'
 " Plug 'Shougo/unite.vim'
 " Plug 'm2mdas/phpcomplete-extended'
 
+
+" Markdown
+Plug 'mzlogin/vim-markdown-toc'
 
 
 call plug#end()            " required

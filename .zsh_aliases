@@ -81,6 +81,7 @@ alias gb='git branch'
 alias gbv='git branch -vv'
 alias gt='git stash'
 alias gtp='git stash pop'
+alias gco='git checkout'
 
 alias nocaps="setxkbmap -option caps:escape"
 alias fr="setxkbmap fr"
@@ -106,6 +107,14 @@ alias dce='docker-compose exec'
 alias dcr='docker-compose run'
 alias dcrd='docker-compose run -d'
 alias dcb='docker-compose build'
+
+
+# get pid of window
+alias xpropwin="xprop _NET_WM_PID | cut -d' ' -f3"
+
+# mount points
+alias mountkeepass='sudo mount.cifs //SRVSQYDFS03.btp-consultants.fr/Dev-KeePass$ /mnt/keepass -o uid=1000,iocharset=utf8,credentials=/home/alexandre/.samba/credentials'
+alias mountcitae='sudo mount.cifs //SRVSQYDFS02.btp-consultants.fr/citae /mnt/citae -o uid=1000,iocharset=utf8,credentials=/home/alexandre/.samba/credentials'
 
 
 alias mariosong="beep -f 130 -l 100 -n -f 262 -l 100 -n -f 330 -l 100 -n -f 392 -l 100 -n -f 523 -l 100 -n -f 660 -l 100 -n -f 784 -l 300 -n -f 660 -l 300 -n -f 146 -l 100 -n -f 262 -l 100 -n -f 311 -l 100 -n -f 415 -l 100 -n -f 523 -l 100 -n -f 622 -l 100 -n -f 831 -l 300 -n -f 622 -l 300 -n -f 155 -l 100 -n -f 294 -l 100 -n -f 349 -l 100 -n -f 466 -l 100 -n -f 588 -l 100 -n -f 699 -l 100 -n -f 933 -l 300 -n -f 933 -l 100 -n -f 933 -l 100 -n -f 933 -l 100 -n -f 1047 -l 400"

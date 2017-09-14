@@ -109,3 +109,17 @@ compdef '_files -W /home/theodo/crysalide/projects/' crysaccess
 
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
+
+function gcrand() {
+  while true; do
+    wtc=$(echo $(curl -s http://whatthecommit.com/index.txt))" - http://whatthecommit.com";
+    echo "$wtc";
+    select yn in "Yes" "No" "Cancel"; do
+      case $yn in
+        Yes ) git commit -m "$wtc"; return;;
+        No ) break;;
+        Cancel ) return;;
+      esac
+    done;
+  done;
+}
