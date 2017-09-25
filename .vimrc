@@ -70,6 +70,7 @@ Plug 'dhruvasagar/vim-table-mode'
 
 " Markdown
 Plug 'mzlogin/vim-markdown-toc'
+let g:vmt_auto_update_on_save = 0
 
 
 call plug#end()            " required
