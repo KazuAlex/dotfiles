@@ -99,10 +99,11 @@ fi
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 #
 
-function crysaccess() {
-  cd /home/theodo/crysalide/projects/$1
-}
-compdef '_files -W /home/theodo/crysalide/projects/' crysaccess
+# only for citae
+# function crysaccess() {
+#   cd /home/theodo/crysalide/projects/$1
+# }
+# compdef '_files -W /home/theodo/crysalide/projects/' crysaccess
 
 # export NVM_DIR="~/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -123,3 +124,18 @@ function gcrand() {
     done;
   done;
 }
+
+
+
+# history ## not working :(
+export HIST_STAMPS="yyyy-mm-dd"
+export HISTFILE=~/.zsh_history
+export HISTSIZE=999999999
+export SAVEHIST=$HISTSIZE
+
+
+
+## NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
