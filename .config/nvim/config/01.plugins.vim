@@ -1,3 +1,14 @@
+if empty(glob($HOME.'/.config/nvim/.cache/'))
+  " creating directories...
+  silent !mkdir -p $HOME/.config/nvim/.cache/dein
+  " downloading dein...
+  silent !curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+  " dein installation...
+  silent !sh ./installer.sh $HOME/.config/nvim/.cache/dein
+
+  silent autocmd VimEnter * UpdateRemotePlugins | source $HOME/.config/nvim/init.vim
+endif
+
 " Required:
 set runtimepath+=$HOME/.config/nvim/.cache/dein/repos/github.com/Shougo/dein.vim
 
