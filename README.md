@@ -1,28 +1,32 @@
-# [Linuxbrew](http://linuxbrew.sh)  
-## install  
+# install.sh
+
+
+# manual install
+## [Linuxbrew](http://linuxbrew.sh)  
+### install  
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"  
 ```
   
-## bin path  
+### bin path  
 Add brew's bin path to your .zshrc, .bashrc or equivalent
 ```bash
 export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
 ```
 
-# [Neovim](https://neovim.io/)  
-## dependencies  
+## [Neovim](https://neovim.io/)  
+### dependencies  
 ```bash
 brew install python
 brew install python3
 ```
 
-## install neovim with brew  
+### install neovim with brew  
 ```bash
 brew install neovim
 ```
 
-## install neovim python package
+### install neovim python package
 ```bash
 pip3 install neovim
 ```
