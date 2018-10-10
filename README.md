@@ -34,7 +34,7 @@ brew install neovim
 pip3 install neovim
 ```
   
-# A last step before start coding like a pro
+# A last step before start coding like a vim master
 ## get repository
 ```bash
 git init
