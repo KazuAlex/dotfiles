@@ -1,5 +1,7 @@
 # install.sh
-
+```bash
+sh -c "$(curl -fsSL https://gitlab.com/KazuAlex/dotfiles/raw/master/bin/install.sh)"  
+```
 
 # manual install
 ## [Linuxbrew](http://linuxbrew.sh)  
