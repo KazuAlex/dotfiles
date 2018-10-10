@@ -33,8 +33,8 @@ brew install neovim
 ```bash
 pip3 install neovim
 ```
-
-# A last step
+  
+# A last step before start coding like a pro
 ## get repository
 ```bash
 git init
