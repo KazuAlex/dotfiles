@@ -47,6 +47,7 @@ if dein#load_state($HOME.'/.config/nvim/.cache/dein')
               \ 'build': 'bash install.sh',
               \ })
   call dein#add('kien/ctrlp.vim')
+  call dein#add('lvht/phpcd.vim', { 'build': 'composer install' })
 
   " Required:
   call dein#end()
