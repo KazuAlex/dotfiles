@@ -38,7 +38,7 @@ set smartindent
 filetype indent plugin on
 
 " Copies using system clipboard
-set clipboard+=unnamedplus
+" set clipboard+=unnamedplus
 
 " Tab = 2 spaces
 set tabstop=2
@@ -84,3 +84,13 @@ autocmd BufLeave term://* stopinsert
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 nnoremap <Leader>P :let ctrlp_user_command = []<CR>:CtrlPClearCache<CR>:CtrlP<CR>:let ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']<CR>:CtrlPClearCache<CR>
 let g:ctrlp_max_height = 100
+
+" folding
+set foldenable
+let php_folding=1
+let g:xml_syntax_folding = 1
+let g:javaScript_fold = 1
+let g:sh_fold_enabled= 7
+set foldmethod=indent
+set foldlevel=1
+set foldlevelstart=1

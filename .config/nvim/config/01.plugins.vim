@@ -21,33 +21,69 @@ if dein#load_state($HOME.'/.config/nvim/.cache/dein')
   call dein#add($HOME.'/.config/nvim/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
+
+  " snippet
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
+
+  " language pack
   call dein#add('sheerun/vim-polyglot')
-  call dein#add('Shougo/vimshell')
-  call dein#add('Shougo/deoplete.nvim')
-  call dein#add('vim-airline/vim-airline')
-  call dein#add('vim-airline/vim-airline-themes')
-  call dein#add('Shougo/neoinclude.vim')
-  call dein#add('Shougo/neco-vim')
+
+  " file explorer
   call dein#add('scrooloose/nerdtree')
-  call dein#add('icymind/NeoSolarized')
-  call dein#add('tmhedberg/SimpylFold')
+
+  " folding
   call dein#add('Konfekt/FastFold')
+
+  " linter
   call dein#add('w0rp/ale')
-  call dein#add('w0ng/vim-hybrid')
+
+  " ??
+  call dein#add('Shougo/neco-vim')
   call dein#add('Shougo/neoinclude.vim')
   call dein#add('neomutt/neomutt.vim')
   call dein#add('junegunn/fzf')
-  call dein#add('zchee/deoplete-jedi')
+
+  " terminal in neovim : <C-a>
   call dein#add('alaric/neovim-visor')
+
+  " tmux
   call dein#add('christoomey/vim-tmux-navigator')
+
+  " schema
+  call dein#add('w0ng/vim-hybrid')
+  call dein#add('icymind/NeoSolarized')
+
+  " airline theme
+  call dein#add('vim-airline/vim-airline')
+  call dein#add('vim-airline/vim-airline-themes')
+  call dein#add('powerline/powerline')
+
+  " autocompletion
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('Shougo/vimshell')
+  call dein#add('zchee/deoplete-jedi')
   call dein#add('autozimu/LanguageClient-neovim', {
               \ 'rev': 'next',
               \ 'build': 'bash install.sh',
               \ })
-  call dein#add('kien/ctrlp.vim')
   call dein#add('lvht/phpcd.vim', { 'build': 'composer install' })
+
+  " fuzzy search file
+  call dein#add('kien/ctrlp.vim')
+
+  " comment with <g-c-c>
+  call dein#add('tpope/vim-commentary')
+  
+  " automatic closing quotes, parentheses, brackets, etc
+  call dein#add('Raimondi/delimitMate')
+
+  " create table
+  call dein#add('dhruvasagar/vim-table-mode')
+
+  " plugins for git
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('jreybert/vimagit')
 
   " Required:
   call dein#end()
