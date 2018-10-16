@@ -38,6 +38,9 @@ if dein#load_state($HOME.'/.config/nvim/.cache/dein')
   " linter
   call dein#add('w0rp/ale')
 
+  " color
+  call dein#add('vim-scripts/colorizer')
+
   " ??
   call dein#add('Shougo/neco-vim')
   call dein#add('Shougo/neoinclude.vim')
@@ -69,6 +72,9 @@ if dein#load_state($HOME.'/.config/nvim/.cache/dein')
               \ })
   call dein#add('lvht/phpcd.vim', { 'build': 'composer install' })
 
+  " tag
+  call dein#add('majutsushi/tagbar')
+
   " fuzzy search file
   call dein#add('kien/ctrlp.vim')
 
@@ -84,6 +90,12 @@ if dein#load_state($HOME.'/.config/nvim/.cache/dein')
   " plugins for git
   call dein#add('tpope/vim-fugitive')
   call dein#add('jreybert/vimagit')
+
+  " sudo stuff
+  call dein#add('lambdalisue/suda.vim')
+
+  " surround
+  call dein#add('tpope/vim-surround')
 
   " Required:
   call dein#end()
