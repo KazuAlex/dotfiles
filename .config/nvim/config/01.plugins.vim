@@ -70,7 +70,11 @@ if dein#load_state($HOME.'/.config/nvim/.cache/dein')
               \ 'rev': 'next',
               \ 'build': 'bash install.sh',
               \ })
-  call dein#add('lvht/phpcd.vim', { 'build': 'composer install' })
+  call dein#add('kristijanhusak/deoplete-phpactor') " autocomplete for phpactor/deoplete
+
+  " php
+  " call dein#add('lvht/phpcd.vim', { 'build': 'composer install' })
+  call dein#add('phpactor/phpactor', {'for': 'php', 'do': 'composer install'})
 
   " tag
   call dein#add('majutsushi/tagbar')
@@ -96,6 +100,9 @@ if dein#load_state($HOME.'/.config/nvim/.cache/dein')
 
   " surround
   call dein#add('tpope/vim-surround')
+
+  " typescript
+  call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})
 
   " Required:
   call dein#end()

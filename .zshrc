@@ -6,6 +6,7 @@
   export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
   export PATH=$PATH:$HOME/Softwares/bin
   export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
+  export PATH=$PATH:/home/alexandre/Android/Sdk/platform-tools:/home/alexandre/Android/Sdk/tools
   export MANPATH=/home/linuxbrew/.linuxbrew/share/man:$MANPATH
   export INFOPATH=/home/linuxbrew/.linuxbrew/share/info:$INFOPATH
 

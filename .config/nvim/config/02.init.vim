@@ -41,6 +41,7 @@ filetype indent plugin on
 " set clipboard+=unnamedplus
 
 " Tab = 2 spaces
+set expandtab
 set tabstop=2
 set shiftwidth=2
 set sta
@@ -81,8 +82,8 @@ autocmd BufWinEnter,WinEnter term://* startinsert
 autocmd BufLeave term://* stopinsert
 
 " ctrlp ignore files matched by .gitignore if any
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-nnoremap <Leader>P :let ctrlp_user_command = []<CR>:CtrlPClearCache<CR>:CtrlP<CR>:let ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']<CR>:CtrlPClearCache<CR>
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard', 'dist']
+nnoremap <Leader>P :let ctrlp_user_command = []<CR>:CtrlPClearCache<CR>:CtrlP<CR>:let ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard', 'dist']<CR>:CtrlPClearCache<CR>
 let g:ctrlp_max_height = 100
 
 " folding
@@ -94,3 +95,7 @@ let g:sh_fold_enabled= 7
 set foldmethod=indent
 set foldlevel=1
 set foldlevelstart=1
+
+
+" custom commands
+command Prettyjson :%!python -m json.tool

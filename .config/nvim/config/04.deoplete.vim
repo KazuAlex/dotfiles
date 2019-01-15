@@ -36,5 +36,5 @@ let g:deoplete#ignore_sources = {}
 let g:deoplete#ignore_sources._ = ['buffer', 'around']
 
 "phpcd.vim
-let g:deoplete#ignore_sources.php = ['omni']
+let g:deoplete#ignore_sources.php = ['omni', 'phpactor']
 let g:phpcd_disable_modifier = 0
