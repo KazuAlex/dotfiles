@@ -1,3 +1,4 @@
+alias reload='. ~/.zshrc'
 alias tat='tmux a -t'
 alias tls='tmux ls'
 

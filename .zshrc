@@ -7,6 +7,7 @@
   export PATH=$PATH:$HOME/Softwares/bin
   export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
   export PATH=$PATH:/home/alexandre/Android/Sdk/platform-tools:/home/alexandre/Android/Sdk/tools
+  export PATH=$PATH:$NVM_DIR
   export MANPATH=/home/linuxbrew/.linuxbrew/share/man:$MANPATH
   export INFOPATH=/home/linuxbrew/.linuxbrew/share/info:$INFOPATH
 
@@ -110,9 +111,6 @@ fi
 # }
 # compdef '_files -W /home/theodo/crysalide/projects/' crysaccess
 
-# export NVM_DIR="~/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
@@ -139,8 +137,12 @@ export HISTSIZE=999999999
 export SAVEHIST=$HISTSIZE
 
 
-
 ## NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# source /usr/share/nvm/init-nvm.sh
+
+# powerline
+# powerline-daemon -q
+# . /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
