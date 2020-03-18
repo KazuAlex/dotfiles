@@ -104,6 +104,9 @@ if dein#load_state($HOME.'/.config/nvim/.cache/dein')
   " typescript
   call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})
 
+  " editorconfig
+  call dein#add('editorconfig/editorconfig-vim')
+
   " Required:
   call dein#end()
   call dein#save_state()

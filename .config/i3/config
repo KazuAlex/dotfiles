@@ -68,8 +68,9 @@ bindsym $mod+Ctrl+m exec $TERMINAL -e 'alsamixer'
 
 # Start Applications
 bindsym $mod+Ctrl+b exec $TERMINAL -e 'bmenu'
-bindsym $mod+F2 exec firefox
-bindsym $mod+Shift+F2 exec firefox-developer-edition
+# bindsym $mod+F2 exec /opt/firefox/firefox-bin
+bindsym $mod+F2 exec /opt/firefox/firefox-bin
+bindsym $mod+Shift+F2 exec /opt/firefox-dev/firefox-bin
 bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
@@ -77,9 +78,16 @@ bindsym $mod+F5 exec $TERMINAL -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym Print exec --no-startup-id i3-scrot
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+set $i3scrot ~/.config/i3/scripts/i3-scrot
+# bindsym Print exec --no-startup-id i3-scrot
+bindsym Print exec --no-startup-id $i3scrot
+# bindsym Print exec --no-startup-id scrot ~/Pictures/%Y-%m-%d-%H-%M-%S.png
+# bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
+bindsym $mod+Print --release exec --no-startup-id $i3scrot -w
+# bindsym $mod+Print --release exec --no-startup-id scrot -u ~/Pictures/%Y-%m-%d-%H-%M-%S.png
+# bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+bindsym $mod+Shift+Print --release exec --no-startup-id $i3scrot -s
+# bindsym $mod+Shift+Print --release exec --no-startup-id scrot -s ~/Pictures/%Y-%m-%d-%H-%M-%S.png
 bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
@@ -162,6 +170,7 @@ set $ws5 5
 set $ws6 6
 set $ws7 7
 set $ws8 8
+set $ws9 9
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -172,6 +181,7 @@ bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
@@ -182,6 +192,7 @@ bindsym $mod+Ctrl+5 move container to workspace $ws5
 bindsym $mod+Ctrl+6 move container to workspace $ws6
 bindsym $mod+Ctrl+7 move container to workspace $ws7
 bindsym $mod+Ctrl+8 move container to workspace $ws8
+bindsym $mod+Ctrl+9 move container to workspace $ws9
 
 # Move to workspace with focused container
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
@@ -192,6 +203,7 @@ bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
 # Open applications on specific workspaces
 # assign [class="Thunderbird"] $ws1
@@ -299,7 +311,7 @@ mode "resize" {
 }
 
 # Lock screen
-# bindsym $mod+l exec --no-startup-id blurlock
+bindsym Ctrl+Mod1+l exec --no-startup-id /home/alexandre/.config/i3/lock.sh
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -446,3 +458,18 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+# Spotify
+# CHANGE : added to polybar launch script
+# exec --no-startup-id /bin/sh /home/alexandre/.config/polybar/modules/spotify/scripts/spotify/launchlistener.sh
+
+# FN controls
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+ # increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%- # decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 1+ toggle # mute sound
+# Media player controls
+bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+bindsym XF86AudioPause exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous

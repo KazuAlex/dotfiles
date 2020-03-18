@@ -51,13 +51,18 @@ module-margin-right = 2
 font-0 = Comfortaa:pixelsize=8;2
 font-1 = UbuntuMono Nerd Font:size=10;2
 font-2 = UbuntuMono Nerd Font:size=16;3
+font-3 = FontAwesome:size=10;3
 ; font-0 = Noto Sans Mono:size=9:style=Regular
 ; font-1 = Unifont Upper:style=Medium
 ; font-2 = siji:pixelsize=10;1
 
+enable-ipc = true
+
 modules-left = ip wireless-network
-modules-center = date mpd
-modules-right = xbacklight alsa battery colorpicker
+modules-center = date
+modules-right = pulseaudio spotify previous playpause next
+; modules-right = mpd
+; modules-right = xbacklight alsa battery
 
 tray-position = none
 tray-padding = 2
@@ -98,15 +103,18 @@ module-margin-right = 2
 font-0 = Comfortaa:pixelsize=8;2
 font-1 = UbuntuMono Nerd Font:size=10;2
 font-2 = UbuntuMono Nerd Font:size=16;3
+font-3 = FontAwesome:size=10;3
+
+enable-ipc = true
 
 modules-left = globalmenu i3
 modules-center = windowtitle
-modules-right = filesystem xkeyboard cpu memory
+modules-right = filesystem xkeyboard cpu memory gmail updates-debian
 
 [module/ip]
 type = internal/network
-interface = enp0s3
-format-connected =  <label-connected>
+interface = eno1
+format-connected =   <label-connected>
 format-disconnected = <label-disconnected>
 label-disconnected = Not Connected
 label-connected = %local_ip%
@@ -115,7 +123,7 @@ label-connected = %local_ip%
 type = internal/network
 format-connected = "   <label-connected>"
 label-connected = " %upspeed%   %downspeed%"
-interface = enp0s3
+interface = eno1
 
 [module/windowtitle]
 type = internal/xwindow
@@ -215,7 +223,12 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 [module/mpd]
 type = internal/mpd
+host = 127.0.0.1
+port = 6600
+password = 
 format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+label-offline = Off
+format-offline = <label-offline>
 
 icon-prev = 
 icon-stop = 
@@ -226,27 +239,27 @@ icon-next = 
 label-song-maxlen = 25
 label-song-ellipsis = true
 
-[module/xbacklight]
-type = internal/xbacklight
+; [module/xbacklight]
+; type = internal/xbacklight
 
-format = <label> <bar>
-label = BL
+; format = <label> <bar>
+; label = BL
 
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #fff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
+; bar-width = 10
+; bar-indicator = |
+; bar-indicator-foreground = #fff
+; bar-indicator-font = 2
+; bar-fill = ─
+; bar-fill-font = 2
+; bar-fill-foreground = #9f78e1
+; bar-empty = ─
+; bar-empty-font = 2
+; bar-empty-foreground = ${colors.foreground-alt}
 
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
+; [module/backlight-acpi]
+; inherit = module/xbacklight
+; type = internal/backlight
+; card = intel_backlight
 
 [module/cpu]
 type = internal/cpu
@@ -288,7 +301,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp0s3
+interface = eno1
 interval = 3.0
 
 format-connected-underline = #55aa55
@@ -342,74 +355,83 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
-[module/alsa]
-type = internal/alsa
-
-format-volume = <label-volume> <bar-volume>
-label-volume = " "
+[module/volume]
+type = internal/pulseaudio
+format-volume = <label-volume>
+label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
-
-format-muted-prefix = " "
+format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground-alt}
 label-muted = sound muted
 
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+; [module/alsa]
+; type = internal/alsa
 
-[module/battery]
-type = internal/battery
-battery = BAT0
-adapter = AC
-full-at = 99
+; format-volume = <label-volume> <bar-volume>
+; label-volume = " "
+; label-volume-foreground = ${root.foreground}
 
-format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+; format-muted-prefix = " "
+; format-muted-foreground = ${colors.foreground-alt}
+; label-muted = sound muted
 
-format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = #ff5555
+; bar-volume-width = 10
+; bar-volume-foreground-0 = #55aa55
+; bar-volume-foreground-1 = #55aa55
+; bar-volume-foreground-2 = #55aa55
+; bar-volume-foreground-3 = #55aa55
+; bar-volume-foreground-4 = #55aa55
+; bar-volume-foreground-5 = #f5a70a
+; bar-volume-foreground-6 = #ff5555
+; bar-volume-gradient = false
+; bar-volume-indicator = |
+; bar-volume-indicator-font = 2
+; bar-volume-fill = ─
+; bar-volume-fill-font = 2
+; bar-volume-empty = ─
+; bar-volume-empty-font = 2
+; bar-volume-empty-foreground = ${colors.foreground-alt}
 
-label-charging = " %percentage%%"
-label-discharging = " %percentage%%"
-label-full = "%percentage%%"
+; [module/battery]
+; type = internal/battery
+; battery = BAT0
+; adapter = AC
+; full-at = 99
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = #55aa55
+; format-charging = <animation-charging> <label-charging>
+; format-charging-underline = #ffb52a
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
+; format-discharging = <animation-discharging> <label-discharging>
+; format-discharging-underline = #ff5555
 
-animation-charging-0 = "  "
-animation-charging-1 = "  "
-animation-charging-2 = "  "
-animation-charging-3 = "  "
-animation-charging-4 = " "
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
+; label-charging = " %percentage%%"
+; label-discharging = " %percentage%%"
+; label-full = "%percentage%%"
 
-animation-discharging-0 = " "
-animation-discharging-1 = "  "
-animation-discharging-2 = "  "
-animation-discharging-3 = "  "
-animation-discharging-4 = "  "
-animation-discharging-foreground = ${colors.foreground-alt}
-animation-discharging-framerate = 750
+; format-full-prefix = " "
+; format-full-prefix-foreground = ${colors.foreground-alt}
+; format-full-underline = #55aa55
+
+; ramp-capacity-0 = 
+; ramp-capacity-1 = 
+; ramp-capacity-2 = 
+; ramp-capacity-foreground = ${colors.foreground-alt}
+
+; animation-charging-0 = "  "
+; animation-charging-1 = "  "
+; animation-charging-2 = "  "
+; animation-charging-3 = "  "
+; animation-charging-4 = " "
+; animation-charging-foreground = ${colors.foreground-alt}
+; animation-charging-framerate = 750
+
+; animation-discharging-0 = " "
+; animation-discharging-1 = "  "
+; animation-discharging-2 = "  "
+; animation-discharging-3 = "  "
+; animation-discharging-4 = "  "
+; animation-discharging-foreground = ${colors.foreground-alt}
+; animation-discharging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
@@ -483,21 +505,69 @@ menu-4-1-exec = sudo poweroff
 menu-4-1-foreground = ${colors.foreground}
 menu-4-1-background = ${colors.alert}
 
-[module/colorpicker]
+#### SPOTIFY START
+[module/previous]
 type = custom/script
-exec = "~/.config/polybar/scripts/colorpicker.sh 2> /home/alexandre/debug.log"
-click-left = ~/.config/polybar/scripts/colorpicker.sh --pick 2>&1 > /home/alexandre/debug.log
-click-right = "echo "toggle" > /tmp/i3colorpicker && kill -USR1 $(pgrep --oldest --parent %pid%) && ~/.config/polybar/scripts/colorpicker.sh --update 2>&1 > /home/alexandre/debug.log"
-double-click-left = "echo "open_popup" > /tmp/i3colorpicker && kill -USR1 $(pgrep --oldest --parent %pid%) && ~/.config/polybar/scripts/colorpicker.sh --update 2>&1 > /home/alexandre/debug.log"
-double-click-right = "echo "clipboard" > /tmp/i3colorpicker && kill -USR1 $(pgrep --oldest --parent %pid%) && ~/.config/polybar/scripts/colorpicker.sh --update 2>&1 > /home/alexandre/debug.log"
-scroll-up = "echo "previous_color" > /tmp/i3colorpicker && kill -USR1 $(pgrep --oldest --parent %pid%) && ~/.config/polybar/scripts/colorpicker.sh --update 2>&1 > /home/alexandre/debug.log"
-scroll-down = "echo "next_color" > /tmp/i3colorpicker && kill -USR1 $(pgrep --oldest --parent %pid%) && ~/.config/polybar/scripts/colorpicker.sh --update 2>&1 > /home/alexandre/debug.log"
+interval = 86400
+format = "%{T0}<label>"
+format-padding = 5
+; Previous song icon
+exec = echo ""
+; Check if spotify is running before displaying the icon
+exec-if = "pgrep spotify"
+; format-underline = #1db954
+line-size = 1
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+
+[module/next]
+type = custom/script
+interval = 86400
+format = "%{T0}<label>"
+format-padding = 5
+; Next song icon
+exec = echo ""
+; Check if spotify is running before displaying the icon
+exec-if = "pgrep spotify"
+; format-underline = #1db954
+line-size = 1
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+
+[module/playpause]
+type = custom/ipc
+; Default
+hook-0 = echo ""
+; Playing
+hook-1 = echo ""
+; Paused
+hook-2 = echo ""
+initial = 1
+; format-underline = #1db954
+line-size = 1
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+
+[module/spotify]
+type = custom/ipc
+hook-0 = echo "Not playing"
+hook-1 = /usr/bin/env python3 /home/alexandre/.config/polybar/modules/spotify/scripts/spotify/spotify_status.py
+initial = 1
+format-padding = 4
+format-underline = #1db954
+line-size = 1
+; [i3wm only] - Uncomment the below line to focus on Spotify when clicking on the song name (credits to https://github.com/Esya)
+click-left = i3-msg '[class="Spotify"] focus'
+#### SPOTIFY END
+
+[module/gmail]
+type = custom/script
+exec = python3 ~/.config/polybar/modules/gmail/launch.py
 tail = true
-; interval = 60
-; format = <label>
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-label = %output%
+click-left = xdg-open https://mail.google.com
+
+[module/updates-debian]
+type = custom/script
+exec = ~/.config/polybar/modules/updates-debian/updates-debian.sh
+interval = 60
+
 
 [settings]
 screenchange-reload = true

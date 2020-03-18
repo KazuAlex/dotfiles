@@ -2,7 +2,7 @@ alias reload='. ~/.zshrc'
 alias tat='tmux a -t'
 alias tls='tmux ls'
 
-alias rsp='rsync --info=progress2'
+alias rsp='rsync -avz --info=progress2'
 
 alias gs='git status'
 alias gssb='git status -sb'

@@ -10,14 +10,18 @@
   export PATH=$PATH:$NVM_DIR
   export MANPATH=/home/linuxbrew/.linuxbrew/share/man:$MANPATH
   export INFOPATH=/home/linuxbrew/.linuxbrew/share/info:$INFOPATH
+  export BW_SESSION="zdw8aBwu4qxw/PnGzxuPbMF9U+03S5hoH/e4s/FKH7/vBoLJ3Pfe+m+ShgLsqAKESwLuu1FlvUvl5cCfQw15Bw=="
 
-EDITOR=vim
+  export EDITOR=nvim
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
+
+## DARK THEME
+GTK_THEME=Adwaita:dark
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -110,6 +114,10 @@ fi
 #   cd /home/theodo/crysalide/projects/$1
 # }
 # compdef '_files -W /home/theodo/crysalide/projects/' crysaccess
+function dev() {
+  cd /home/alexandre/develop/$1
+}
+compdef '_files -W /home/alexandre/develop/' dev
 
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
@@ -146,3 +154,8 @@ export NVM_DIR="$HOME/.nvm"
 # powerline
 # powerline-daemon -q
 # . /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
+
+
+export PATH="/home/alexandre/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"

@@ -97,5 +97,11 @@ set foldlevel=1
 set foldlevelstart=1
 
 
+let g:EditorConfig_exec_path = '/home/linuxbrew/.linuxbrew/bin/editorconfig'
+let g:EditorConfig_core_mode = 'external_command'
+" fugitive + editorconfig // @see https://github.com/editorconfig/editorconfig-vim#recommended-options
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
+
 " custom commands
 command Prettyjson :%!python -m json.tool
