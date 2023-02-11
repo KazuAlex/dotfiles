@@ -29,6 +29,7 @@ alias ggoc='git pull origin $(git symbolic-ref --short HEAD)'
 alias gb='git branch'
 alias gbv='git branch -vv'
 alias gt='git stash'
+alias gtpum='git stash push -m'
 alias gtl='git stash list'
 alias gtp='git stash pop'
 alias gf='git fetch'
@@ -80,3 +81,18 @@ alias dcall='dcb;dcud;dcps'
 alias zsrc='source ~/.zshrc'
 
 eval $(thefuck --alias)
+
+alias fgg='$HOME/bin/fgg $(for j in $(jobs); do echo "$j"; done)'
+
+clearmac() {
+  LINES=$(tput lines)
+  x=0
+  while [ $x -lt $LINES ]; do
+    echo ''
+    x=$((x + 1))
+  done
+}
+
+alias snvim='nvim -u ~/.SpaceVim/init.vim'
+
+alias pnpm="npx pnpm"

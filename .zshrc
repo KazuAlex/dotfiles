@@ -8,6 +8,8 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.asdf:$PATH
+export PATH=$HOME/bin:$PATH
+. ~/.asdf/plugins/java/set-java-home.zsh
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -79,7 +81,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z zsh-autosuggestions aliases asdf colored-man-pages sudo)
+plugins=(git z zsh-autosuggestions aliases asdf colored-man-pages sudo pnpm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -90,6 +92,7 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
+export EDITOR='nvim'
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -117,14 +120,17 @@ source $ZSH/oh-my-zsh.sh
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # bell / load .zsh_profile
-source ~/.zsh_profile
+source $HOME/.zsh_profile
+if [ -f $HOME/.zsh_profile_$(hostname) ]; then
+  source $HOME/.zsh_profile_$(hostname)
+fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# export SDKMAN_DIR="$HOME/.sdkman"
+# [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-source ~/.zsh_aliases
+source $HOME/.zsh_aliases
 
-if [ -f ".zsh_aliases_$(hostname)" ]; then
-  source .zsh_aliases_$(hostname)
+if [ -f "$HOME/.zsh_aliases_$(hostname)" ]; then
+  source $HOME/.zsh_aliases_$(hostname)
 fi

@@ -1,0 +1,18 @@
+{
+  "tsserver.log": "verbose",
+  "tsserver.trace.server": "verbose",
+  "tsserver.npm": "/Users/eq05996/.asdf/shims/npm",
+  "markdownlint.config": {
+    "default": true,
+    "line_length": false
+  },
+  "html-css-support.enabledLanguages": [
+    "html",
+    "vue",
+    "blade",
+    "htmldjango",
+    "typescriptreact",
+    "javascriptreact"
+  ],
+  "eslint.enable": false
+}

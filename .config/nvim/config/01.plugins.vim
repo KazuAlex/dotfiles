@@ -20,17 +20,27 @@ if dein#load_state($HOME.'/.config/nvim/.cache/dein')
   " Required:
   call dein#add($HOME.'/.config/nvim/.cache/dein/repos/github.com/Shougo/dein.vim')
 
+  " Dein UI
+  call dein#add('wsdjeg/dein-ui.vim')
+
   " Add or remove your plugins here:
 
   " snippet
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
 
+  " call dein#add('SirVer/ultisnips')
+  " call dein#add('honza/vim-snippets')
+
   " language pack
-  call dein#add('sheerun/vim-polyglot')
+  " call dein#add('sheerun/vim-polyglot')
 
   " file explorer
-  call dein#add('scrooloose/nerdtree')
+  call dein#add('preservim/nerdtree')
+  call dein#add('Xuyuanp/nerdtree-git-plugin') " nerdtree plugin for git
+  call dein#add('ryanoasis/vim-devicons') " nerdtree plugin for icons
+  call dein#add('tiagofumo/vim-nerdtree-syntax-highlight') " nerdtree plugin for color by file type
+  call dein#add('PhilRunninger/nerdtree-buffer-ops') " nerdtree plugin for highlight opened files
 
   " folding
   call dein#add('Konfekt/FastFold')
@@ -63,24 +73,32 @@ if dein#load_state($HOME.'/.config/nvim/.cache/dein')
   call dein#add('powerline/powerline')
 
   " autocompletion
-  call dein#add('Shougo/deoplete.nvim')
-  call dein#add('Shougo/vimshell')
-  call dein#add('zchee/deoplete-jedi')
-  call dein#add('autozimu/LanguageClient-neovim', {
-              \ 'rev': 'next',
-              \ 'build': 'bash install.sh',
-              \ })
-  call dein#add('kristijanhusak/deoplete-phpactor') " autocomplete for phpactor/deoplete
+  "
+  " deoplete completion
+  " call dein#add('Shougo/deoplete.nvim')
+  " call dein#add('Shougo/vimshell')
+  " call dein#add('zchee/deoplete-jedi')
+  " call dein#add('autozimu/LanguageClient-neovim', {
+  "             \ 'rev': 'next',
+  "             \ 'build': 'bash install.sh',
+  "             \ })
+  " call dein#add('kristijanhusak/deoplete-phpactor') " autocomplete for phpactor/deoplete
+  "
+  " coc.nvim
+  call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'master', 'build': 'yarn install --frozen-lockfile' })
 
   " php
   " call dein#add('lvht/phpcd.vim', { 'build': 'composer install' })
-  call dein#add('phpactor/phpactor', {'for': 'php', 'do': 'composer install'})
+  " call dein#add('phpactor/phpactor', {'for': 'php', 'do': 'composer install'})
 
   " tag
   call dein#add('majutsushi/tagbar')
 
   " fuzzy search file
-  call dein#add('kien/ctrlp.vim')
+  call dein#add('ctrlpvim/ctrlp.vim')
+
+  " search in files
+  call dein#add('dyng/ctrlsf.vim')
 
   " comment with <g-c-c>
   call dein#add('tpope/vim-commentary')
@@ -102,13 +120,35 @@ if dein#load_state($HOME.'/.config/nvim/.cache/dein')
   call dein#add('tpope/vim-surround')
 
   " typescript
-  call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})
+  " deprecated since neovim 0.5.0
+  " call dein#add('mhartington/nvim-typescript', {'do': 'sh install.sh'})
 
   " editorconfig
   call dein#add('editorconfig/editorconfig-vim')
 
+  " scrollbar
+  call dein#add('dstein64/nvim-scrollview')
+
   " vue.js
-  call dein#add('leafoftree/vim-vue-plugin')
+  " call dein#add('leafoftree/vim-vue-plugin')
+
+  " wiki / notes
+  call dein#add('vimwiki/vimwiki.git')
+
+  " Markdown preview
+  call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
+					\ 'build': 'sh -c "cd app && yarn install"' })
+
+  " indent guide
+  call dein#add('nathanaelkane/vim-indent-guides')
+
+
+  " java decompiler
+  call dein#add('bam9523/vim-decompile')
+
+  " ejs templating
+  call dein#add('tree-sitter/tree-sitter-embedded-template')
+  
 
   " Required:
   call dein#end()

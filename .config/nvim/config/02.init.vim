@@ -5,6 +5,8 @@
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
+let mapleader=';'
+
 " Enable syntax highlighting
 syntax on
 
@@ -33,7 +35,7 @@ set hlsearch
 set noswapfile
 
 " Autoindentation
-set ai
+set autoindent
 set smartindent
 filetype indent plugin on
 
@@ -44,22 +46,26 @@ filetype indent plugin on
 set expandtab
 set tabstop=2
 set shiftwidth=2
-set sta
-set et
-set sts=2
+set smarttab
+set softtabstop=2
 
-" enable mouse support
+" disable mouse support
 set mouse=
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 " markdown file recognition
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " use ripgreg instead of grep
 set grepprg=rg\ --vimgrep
-
-" python packages in venv
-let g:python_host_prog = '/home/linuxbrew/.linuxbrew/bin/python'
-let g:python3_host_prog = '/home/linuxbrew/.linuxbrew/bin/python3'
 
 " close vim if only window left is nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -97,7 +103,7 @@ set foldlevel=1
 set foldlevelstart=1
 
 
-let g:EditorConfig_exec_path = '/home/linuxbrew/.linuxbrew/bin/editorconfig'
+let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
 let g:EditorConfig_core_mode = 'external_command'
 " fugitive + editorconfig // @see https://github.com/editorconfig/editorconfig-vim#recommended-options
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
@@ -105,3 +111,25 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " custom commands
 command Prettyjson :%!python -m json.tool
+
+" vue
+let g:vim_vue_plugin_config = { 
+      \'syntax': {
+      \   'template': ['html'],
+      \   'script': ['javascript', 'typescript'],
+      \   'style': ['css', 'scss', 'sass', 'less'],
+      \},
+      \'full_syntax': [],
+      \'initial_indent': [],
+      \'attribute': 0,
+      \'keyword': 0,
+      \'foldexpr': 0,
+      \'debug': 0,
+      \}
+
+" indent guide
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#1c1c1c ctermbg=234
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#262626 ctermbg=235
+

@@ -6,7 +6,8 @@
 nmap <C-t> :NERDTreeToggle<CR>
 
 " deoplete tab-complete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
 
 " keybindings for language client
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
@@ -35,13 +36,14 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " Expands or completes the selected snippet/item in the popup menu
-imap <expr><silent><CR> pumvisible() ? deoplete#mappings#close_popup() .
-      \ "\<Plug>(neosnippet_jump_or_expand)" : "\<CR>"
-smap <silent><CR> <Plug>(neosnippet_jump_or_expand)
+" imap <expr><silent><CR> pumvisible() ? deoplete#mappings#close_popup() .
+"       \ "\<Plug>(neosnippet_jump_or_expand)" : "\<CR>"
+" smap <silent><CR> <Plug>(neosnippet_jump_or_expand)
 
 " For conceal markers.
 if has('conceal')
-  set conceallevel=2 concealcursor=niv
+  " set conceallevel=2
+  " set concealcursor=niv
 endif
 
 " neovim visor
@@ -65,34 +67,47 @@ vmap <Tab> >gv
 vmap <S-Tab> <gv
 
 " remap for french keyboard
-noremap m l
-noremap l k
-noremap k j
-noremap j h
+" noremap m l
+" noremap l k
+" noremap k j
+" noremap j h
 
 " move line to 1/4 of screen
 nnoremap <expr> ZT 'zz' . winheight(0)/4 . '<C-e>'
 
 
 
-" phpactor
-" Include use statement
-nmap <Esc>u :call phpactor#UseAdd()<CR>
-" Invoke the context menu
-nmap <Esc>mm :call phpactor#ContextMenu()<CR>
-" Invoke the navigation menu
-nmap <Esc>nn :call phpactor#Navigate()<CR>
-" Goto definition of class or class member under the cursor
-nmap <Esc>o :call phpactor#GotoDefinition()<CR>
-" Show brief information about the symbol under the cursor
-nmap <Esc>K :call phpactor#Hover()<CR>
-" Transform the classes in the current file
-nmap <Esc>tt :call phpactor#Transform()<CR>
-" Generate a new class (replacing the current file)
-nmap <Esc>cc :call phpactor#ClassNew()<CR>
-" Extract expression (normal mode)
-nmap <silent><Esc>ee :call phpactor#ExtractExpression(v:false)<CR>
-" Extract expression from selection
-vmap <silent><Esc>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
-" Extract method from selection
-vmap <silent><Esc>em :<C-U>call phpactor#ExtractMethod()<CR>
+" " phpactor
+" " Include use statement
+" nmap <Esc>u :call phpactor#UseAdd()<CR>
+" " Invoke the context menu
+" nmap <Esc>mm :call phpactor#ContextMenu()<CR>
+" " Invoke the navigation menu
+" nmap <Esc>nn :call phpactor#Navigate()<CR>
+" " Goto definition of class or class member under the cursor
+" nmap <Esc>o :call phpactor#GotoDefinition()<CR>
+" " Show brief information about the symbol under the cursor
+" nmap <Esc>K :call phpactor#Hover()<CR>
+" " Transform the classes in the current file
+" nmap <Esc>tt :call phpactor#Transform()<CR>
+" " Generate a new class (replacing the current file)
+" nmap <Esc>cc :call phpactor#ClassNew()<CR>
+" " Extract expression (normal mode)
+" nmap <silent><Esc>ee :call phpactor#ExtractExpression(v:false)<CR>
+" " Extract expression from selection
+" vmap <silent><Esc>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
+" " Extract method from selection
+" vmap <silent><Esc>em :<C-U>call phpactor#ExtractMethod()<CR>
+
+
+
+
+" VimWiki
+nmap <C-n> <Plug>VimwikiNextLink
+nmap <C-b> <Plug>VimwikiPrevLink
+
+
+" search file content
+nmap <C-f> <Plug>CtrlSFPrompt
+vmap <C-f> <Plug>CtrlSFVwordPath
+nnoremap <C-f>t :CtrlSFToggle<CR>
