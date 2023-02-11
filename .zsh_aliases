@@ -1,4 +1,3 @@
-alias reload='. ~/.zshrc'
 alias tat='tmux a -t'
 alias tls='tmux ls'
 
@@ -25,7 +24,8 @@ alias gpom='git push origin master'
 alias gpoc='git push origin $(git symbolic-ref --short HEAD)'
 alias gg='git pull'
 alias ggo='git pull origin'
-alias ggom='git pull origin master'
+# alias ggom='git pull origin master'
+alias ggoc='git pull origin $(git symbolic-ref --short HEAD)'
 alias gb='git branch'
 alias gbv='git branch -vv'
 alias gt='git stash'
@@ -47,15 +47,13 @@ alias nocaps="setxkbmap -option caps:escape"
 alias nobell="xset b off"
 alias fr="setxkbmap fr"
 
-alias bright='echo $1 | sudo tee /sys/class/backlight/intel_backlight/brightness'
 alias remap='/usr/bin/setxkbmap -option "caps:swapescape"'
 
-# alias vim='nvim'
+alias vim='nvim'
 alias oldvim='/usr/bin/vim'
 alias bim='vim'
 alias viom='vim'
-
-alias gmail="chromium http://gmail.com"
+alias nvin='nvim'
 
 alias whoisonport80='sudo netstat -tulpn | grep ":80"'
 alias whoisonport='sudo netstat -tulpn | grep '
@@ -74,62 +72,11 @@ dcepb() {
 dceb() {
     dce service_$1 bash
 }
-dceab () {
-  dce service_advango_$1 bash
-}
 alias dcr='docker-compose run'
 alias dcrd='docker-compose run -d'
 alias dcb='docker-compose build'
 alias dcall='dcb;dcud;dcps'
 
-# aliases for vagrant
-alias vu='vagrant up'
+alias zsrc='source ~/.zshrc'
 
-# apache
-alias a2start='sudo /etc/init.d/apache2 start'
-alias a2stop='sudo /etc/init.d/apache2 stop'
-alias a2restart='sudo /etc/init.d/apache2 restart'
-
-# generate ctags
-alias ctags='ctags-exuberant -R --PHP-kinds=+cf --exclude=".git" .'
-alias ctagsapi='ctags-exuberant -R --PHP-kinds=+cf --exclude=".git" api'
-
-
-# get pid of window
-alias xpropwin="xprop _NET_WM_PID | cut -d' ' -f3"
-
-
-alias mariosong="beep -f 130 -l 100 -n -f 262 -l 100 -n -f 330 -l 100 -n -f 392 -l 100 -n -f 523 -l 100 -n -f 660 -l 100 -n -f 784 -l 300 -n -f 660 -l 300 -n -f 146 -l 100 -n -f 262 -l 100 -n -f 311 -l 100 -n -f 415 -l 100 -n -f 523 -l 100 -n -f 622 -l 100 -n -f 831 -l 300 -n -f 622 -l 300 -n -f 155 -l 100 -n -f 294 -l 100 -n -f 349 -l 100 -n -f 466 -l 100 -n -f 588 -l 100 -n -f 699 -l 100 -n -f 933 -l 300 -n -f 933 -l 100 -n -f 933 -l 100 -n -f 933 -l 100 -n -f 1047 -l 400"
-alias tetrissong="beep -f 330 -l 150 -n -f 1 -l 40 -n -f 494 -l 159 -n -f 1 -l 40 -n -f 660 -l 150 -n -f 1 -l 40 -n -f 590 -l 150 -n -f 660 -l 150 -n -f 494 -l 100 -n -f 494 -l 100 -n -f 523 -l 150 -n -f 1 -l 40 -n -f 440 -l 150 -n -f 1 -l 40 -n -f 494 -l 150 -n -f 1 -l 40 -n -f 392 -l 100 -n -f 392 -l 100 -n -f 440 -l 150 -n -f 370 -l 150 -n -f 1 -l 40 -n -f 392 -l 150 -n -f 1 -l 40 -n -f 330 -l 100 -n -f 330 -l 100 -n -f 370 -l 150 -n -f 1 -l 40 -n -f 294 -l 150 -n -f 1 -l 40 -n -f 330 -l 150 -n -f 247 -l 100 -n -f 247 -l 100 -n -f 261 -l 150 -n -f 1 -l 40 -n -f 311 -l 150 -n -f 1 -l 40 -n -f 330 -l 150 -n -f 1 -l 40 -n -f 247 -l 100 -n -f 247 -l 100 -n -f 262 -l 150 -n -f 1 -l 40 -n -f 370 -l 150 -n -f 1 -l 40 -n -f 330 -l 150 -n -f 1 -l 40 -n -f 494 -l 159 -n -f 1 -l 40 -n -f 660 -l 150 -n -f 1 -l 40 -n -f 590 -l 150 -n -f 660 -l 150 -n -f 494 -l 100 -n -f 494 -l 100 -n -f 523 -l 150 -n -f 1 -l 40 -n -f 440 -l 150 -n -f 1 -l 40 -n -f 494 -l 150 -n -f 1 -l 40 -n -f 392 -l 100 -n -f 392 -l 100 -n -f 440 -l 150 -n -f 370 -l 150 -n -f 1 -l 40 -n -f 392 -l 150 -n -f 1 -l 40 -n -f 330 -l 100 -n -f 330 -l 100 -n -f 370 -l 150 -n -f 1 -l 40 -n -f 294 -l 150 -n -f 1 -l 40 -n -f 330 -l 150 -n -f 247 -l 100 -n -f 247 -l 100 -n -f 261 -l 150 -n -f 1 -l 40 -n -f 311 -l 150 -n -f 1 -l 40 -n -f 330 -l 150 -n -f 1 -l 40 -n -f 247 -l 100 -n -f 247 -l 100 -n -f 262 -l 150 -n -f 1 -l 40 -n -f 370 -l 150 -n -f 1 -l 40 -n -f 330 -l 150 -n -f 1 -l 40"
-alias axelfoley="beep -f 659 -l 460 -n -f 784 -l 340 -n -f 659 -l 230 -n -f 659 -l 110 -n -f 880 -l 230 -n -f 659 -l 230 -n -f 587 -l 230 -n -f 659 -l 460 -n -f 988 -l 340 -n -f 659 -l 230 -n -f 659 -l 110 -n -f 1047-l 230 -n -f 988 -l 230 -n -f 784 -l 230 -n -f 659 -l 230 -n -f 988 -l 230 -n -f 1318 -l 230 -n -f 659 -l 110 -n -f 587 -l 230 -n -f 587 -l 110 -n -f 494 -l 230 -n -f 740 -l 230 -n -f 659 -l 460"
-alias imperialmarch="beep -l 350 -f 392 -D 100 -n -l 350 -f 392 -D 100 -n -l 350 -f 392 \
-     -D 100 -n -l 250 -f 311.1 -D 100 -n -l 25 -f 466.2 -D 100 -n \
-     -l 350 -f 392 -D 100 -n -l 250 -f 311.1 -D 100 -n -l 25 -f 466.2 \
-     -D 100 -n -l 700 -f 392 -D 100 -n -l 350 -f 587.32 -D 100 -n \
-     -l 350 -f 587.32 -D 100 -n -l 350 -f 587.32 -D 100 -n -l 250 \
-     -f 622.26 -D 100 -n -l 25 -f 466.2 -D 100 -n -l 350 -f 369.99 \
-     -D 100 -n -l 250 -f 311.1 -D 100 -n -l 25 -f 466.2 -D 100 -n \
-     -l 700 -f 392 -D 100 -n -l 350 -f 784 -D 100 -n -l 250 -f 392 \
-     -D 100 -n -l 25 -f 392 -D 100 -n -l 350 -f 784 -D 100 -n \
-     -l 250 -f 739.98 -D 100 -n -l 25 -f 698.46 -D 100 -n \
-     -l 25 -f 659.26 -D 100 -n -l 25 -f 622.26 -D 100 -n \
-     -l 50 -f 659.26 -D 400 -n -l 25 -f 415.3 -D 200 -n \
-     -l 350 -f 554.36 -D 100 -n -l 250 -f 523.25 -D 100 -n \
-     -l 25 -f 493.88 -D 100 -n -l 25 -f 466.16 -D 100 -n \
-     -l 25 -f 440 -D 100 -n -l 50 -f 466.16 -D 400 -n \
-     -l 25 -f 311.13 -D 200 -n -l 350 -f 369.99 -D 100 -n \
-     -l 250 -f 311.13 -D 100 -n -l 25 -f 392 -D 100 -n \
-     -l 350 -f 466.16 -D 100 -n -l 250 -f 392 -D 100 -n \
-     -l 25 -f 466.16 -D 100 -n -l 700 -f 587.32 -D 100 -n \
-     -l 350 -f 784 -D 100 -n -l 250 -f 392 -D 100 -n \
-     -l 25 -f 392 -D 100 -n -l 350 -f 784 -D 100 -n \
-     -l 250 -f 739.98 -D 100 -n -l 25 -f 698.46 -D 100 -n \
-     -l 25 -f 659.26 -D 100 -n -l 25 -f 622.26 -D 100 -n \
-     -l 50 -f 659.26 -D 400 -n -l 25 -f 415.3 -D 200 -n \
-     -l 350 -f 554.36 -D 100 -n -l 250 -f 523.25 -D 100 -n \
-     -l 25 -f 493.88 -D 100 -n -l 25 -f 466.16 -D 100 -n \
-     -l 25 -f 440 -D 100 -n -l 50 -f 466.16 -D 400 -n \
-     -l 25 -f 311.13 -D 200 -n -l 350 -f 392 -D 100 -n \
-     -l 250 -f 311.13 -D 100 -n -l 25 -f 466.16 -D 100 -n \
-     -l 300 -f 392.00 -D 150 -n -l 250 -f 311.13 -D 100 -n"
-alias phaser='n=3000; while [ $n -gt 400 ]; do beep -f $n -l 5; n=$((n*97/100)); done'
+eval $(thefuck --alias)

@@ -107,6 +107,9 @@ if dein#load_state($HOME.'/.config/nvim/.cache/dein')
   " editorconfig
   call dein#add('editorconfig/editorconfig-vim')
 
+  " vue.js
+  call dein#add('leafoftree/vim-vue-plugin')
+
   " Required:
   call dein#end()
   call dein#save_state()

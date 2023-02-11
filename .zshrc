@@ -1,40 +1,47 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.asdf:$PATH
+
 # Path to your oh-my-zsh installation.
-  export ZSH=$HOME/.oh-my-zsh
-  export TERM="xterm-256color"
-  export ZSH_2000_DISABLE_RVM='true'
-  export ANDROID_HOME=$HOME/android-sdk-linux
-  export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-  export PATH=$PATH:$HOME/Softwares/bin
-  export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
-  export PATH=$PATH:/home/alexandre/Android/Sdk/platform-tools:/home/alexandre/Android/Sdk/tools
-  export PATH=$PATH:$NVM_DIR
-  export MANPATH=/home/linuxbrew/.linuxbrew/share/man:$MANPATH
-  export INFOPATH=/home/linuxbrew/.linuxbrew/share/info:$INFOPATH
-  export BW_SESSION="zdw8aBwu4qxw/PnGzxuPbMF9U+03S5hoH/e4s/FKH7/vBoLJ3Pfe+m+ShgLsqAKESwLuu1FlvUvl5cCfQw15Bw=="
+export ZSH="$HOME/.oh-my-zsh"
 
-  export EDITOR=nvim
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
-
-## DARK THEME
-GTK_THEME=Adwaita:dark
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -46,6 +53,9 @@ GTK_THEME=Adwaita:dark
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -55,24 +65,27 @@ GTK_THEME=Adwaita:dark
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo docker cp)
+plugins=(git z zsh-autosuggestions aliases asdf colored-man-pages sudo)
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/acousin/.composer/vendor/bin:/usr/java/jdk1.7.0_75/bin:/home/acousin/Android/Sdk/:/home/acousin/Android/Sdk/tools:/home/acousin/Android/Sdk/platform-tools:/home/acousin/Android/Sdk/"
 # export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -87,9 +100,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -99,63 +109,22 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# bell / load .zsh_profile
+source ~/.zsh_profile
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
 source ~/.zsh_aliases
 
-if [ -f ~/.zsh_aliases_$(uname -n) ]; then
-  source ~/.zsh_aliases_$(uname -n)
+if [ -f ".zsh_aliases_$(hostname)" ]; then
+  source .zsh_aliases_$(hostname)
 fi
-# source ~/powerlevel9k/powerlevel9k.zsh-theme
-
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-#
-
-# only for citae
-# function crysaccess() {
-#   cd /home/theodo/crysalide/projects/$1
-# }
-# compdef '_files -W /home/theodo/crysalide/projects/' crysaccess
-function dev() {
-  cd /home/alexandre/develop/$1
-}
-compdef '_files -W /home/alexandre/develop/' dev
-
-fpath=(~/.zsh/completion $fpath)
-autoload -Uz compinit && compinit -i
-
-function gcrand() {
-  while true; do
-    wtc=$(echo $(curl -s http://whatthecommit.com/index.txt))" - http://whatthecommit.com";
-    echo "$wtc";
-    select yn in "Yes" "No" "Cancel"; do
-      case $yn in
-        Yes ) git commit -m "$wtc"; return;;
-        No ) break;;
-        Cancel ) return;;
-      esac
-    done;
-  done;
-}
-
-
-
-# history ## not working :(
-export HIST_STAMPS="yyyy-mm-dd"
-export HISTFILE=~/.zsh_history
-export HISTSIZE=999999999
-export SAVEHIST=$HISTSIZE
-
-
-## NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# source /usr/share/nvm/init-nvm.sh
-
-# powerline
-# powerline-daemon -q
-# . /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
-
-
-export PATH="/home/alexandre/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
